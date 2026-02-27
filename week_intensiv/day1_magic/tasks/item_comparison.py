@@ -5,6 +5,7 @@ class Item:
         return int(self.price) < int(other.price)
         pass
     def __eq__(self, other):
+        if self.__class__ != other.__class__:
+            return False
         return self.name == other.name and self.price == other.price
-
         pass

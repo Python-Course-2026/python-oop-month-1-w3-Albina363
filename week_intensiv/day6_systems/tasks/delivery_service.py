@@ -19,4 +19,8 @@ class DeliveryService:
        - Вернуть "Заказ {id} доставлен курьером {name}".
     """
     def deliver(self, order: Order, courier: Courier):
+        if courier.is_busy:
+            return "Курьер занят"
+        courier.is_busy = True
+        order.status = "Delivered"
         pass
